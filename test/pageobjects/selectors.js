@@ -175,6 +175,8 @@ class BBG extends Base {
     }
 
     async commentLogPlay(comment) {
+
+        await this.comments.waitForClickable({ timeout: 2000 });
         await this.comments.setValue(comment);
     }
 
