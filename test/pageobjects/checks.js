@@ -4,6 +4,8 @@ import Base from './base.js';
 
 class Checking extends Base {
   
+    // checking if these selectors exist
+
     get successfulLogin () {
         return $('.mygeek-dropdown-username.tw-truncate');
 
@@ -28,10 +30,6 @@ class Checking extends Base {
 
     get mushroomCatsCheck() {
         return $('.game-header-ranks.hidden-game-header-collapsed.ng-scope');
-    }
-
-    get checkCommentFilled() {
-        return $('.form-control.ng-valid.ng-touched.ng-dirty.ng-valid-parse.ng-not-empty')        
     }
     
     get checkProfile() {
