@@ -100,25 +100,6 @@ class BBG extends Base {
 
     //array of selectors
 
-    get time1() {
-        return $('//*[contains(text(), "30 m")]');
-    }
-    get time2() {
-        return $('//*[contains(text(), "1 h")]');
-    }
-    get time3() {
-        return $('//*[contains(text(), "1.5 h)]');
-    }
-    get time4() {
-        return $('//*[contains(text(), "2 h")]');
-    }
-    get time5() {
-        return $('//*[contains(text(), "2.5 h)]');
-    }
-    get time6() {
-        return $('//*[contains(text(), "3 h")]');
-    }
-
     times = [ 
         '//*[contains(text(), "30 m")]',
         '//*[contains(text(), "1 h")]',
@@ -129,6 +110,7 @@ class BBG extends Base {
         
     ];  
 
+    // randomizing selectors
     
     async randomIndex(arr){ 
         return Math.floor(Math.random() * arr.length);
