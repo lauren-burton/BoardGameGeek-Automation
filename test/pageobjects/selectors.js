@@ -34,8 +34,8 @@ class BBG extends Base {
 
     }
 
-    get myceliaGame () {
-        return $('[href="/boardgame/392023/mycelia"]');
+    get spiritIsland () {
+        return $('[href="/boardgame/162886/spirit-island"]');
     }
 
     get searchBar () {
@@ -60,17 +60,12 @@ class BBG extends Base {
     return $('//*[contains(text(), "Game details")]');
    }
 
-   
-    get time1 () {
-        return $('//*[contains(text(), "30 m")]');
-
-    }
     get profileBtn() {
         return $('.mygeek-dropdown-username.text-truncate.ng-binding');
     }
 
     get viewLoggedPlays() {
-        return $('[href="/plays/bymonth/user/apricotmilk/subtype/boardgame"]');
+        return $('[href="/plays/bymonth/user/automationtest/subtype/boardgame"]');
 
     }
 
@@ -98,6 +93,9 @@ class BBG extends Base {
         return $('[href="/logout"]');
     }
 
+    get return () {
+        $('[alt="boardgame geek logo"]');
+    }
     //array of selectors
 
     times = [ 
@@ -143,15 +141,13 @@ class BBG extends Base {
         await this.btnSubmit.click();
         await expect(Checking.successfulLogin).toBeExisting()
         await expect(Checking.successfulLogin).toHaveTextContaining(
-            'apricotmilk')
+            'automationtest')
     }
 
     async forums () {
         await this.forumsTab.click();
         await this.hotLink.click();
-        await this.myceliaGame.click();
-
-        await expect(Checking.myceliaPage).toBeExisting();
+        await this.spiritIsland.click();
     }
 
     async searching (mushroom) {
@@ -200,6 +196,9 @@ class BBG extends Base {
         await this.logout.click();
     }
   
+    async reset () {
+        await this.return.click();
+    }
     open () {
         return super.open('login');
     }
