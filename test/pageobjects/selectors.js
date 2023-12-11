@@ -39,12 +39,11 @@ class BBG extends Base {
     }
 
     get searchBar () {
-        return $('#site-search');
-
+        return $('[type="search"]');
     }
 
     get confirm () {
-        return $('[ng-click="searchctrl.fullSearch()"]');
+        return $('.svg-inline--fa.fa-magnifying-glass.fa-flip-horizontal.fa-sm');
     }
 
     get mushroomCatsBtn () {
@@ -61,7 +60,7 @@ class BBG extends Base {
    }
 
     get profileBtn() {
-        return $('.mygeek-dropdown-username.text-truncate.ng-binding');
+        return $('//*[contains(text(), "automationtest")]');
     }
 
     get viewLoggedPlays() {
@@ -185,13 +184,14 @@ class BBG extends Base {
     }
 
     async viewingCollection() {
-        await this.profileBtn.waitForClickable({ timeout: 2000 });
+        await this.profileBtn.waitForClickable({ timeout: 6000 });
         await this.profileBtn.click();
         await this.viewLoggedPlays.click(); 
         await expect(Checking.checkProfile).toBeExisting();
     }
 
     async loggingOut() {
+        await this.profileBtn.waitForClickable({ timeout: 2000 });
         await this.profileBtn.click();
         await this.logout.click();
     }
