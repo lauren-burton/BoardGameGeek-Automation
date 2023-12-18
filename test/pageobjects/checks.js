@@ -7,8 +7,7 @@ class Checking extends Base {
     // checking if these selectors exist
 
     get successfulLogin () {
-        return $('.mygeek-dropdown-username.tw-truncate');
-
+        return $('//span[contains(text(),"automationtest")]');
     }
 
     get dontLogin () {
@@ -34,6 +33,14 @@ class Checking extends Base {
     
     get checkProfile() {
         return $('#legacy_modal');
+    }
+
+    get boardGameDatabase() {
+        return $('#maincontent');
+    }
+
+    get wrongEntry() {
+        return $('.messagebox.error');
     }
     }
 
