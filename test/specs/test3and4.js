@@ -26,7 +26,7 @@ describe('it should view profile', () => {
 describe('it should open the calendar', () => {
     it('should open the calendar', async () => {
 
-        await viewCollection.filteringByDate();
+        await viewCollection.filteringByThis();
     })
 
 })

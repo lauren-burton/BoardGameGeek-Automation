@@ -2,6 +2,8 @@ import { $ } from '@wdio/globals'
 import Base from './base.js';
 
 class loggout extends Base {
+
+    //selectors
     get profileBtn() {
         return $('.mygeek-dropdown-username.text-truncate.ng-binding');
     }
@@ -10,9 +12,8 @@ class loggout extends Base {
         return $('[href="/logout"]');
     }
 
-    get return () {
-        $('[alt="boardgame geek logo"]');
-    }
+
+    //clicking profile and signout button
     async loggingOut() {
         await this.profileBtn.waitForClickable({timeout: 6000});
         await this.profileBtn.click();

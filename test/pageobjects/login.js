@@ -6,6 +6,7 @@ import Checking from './checks.js'
 
 class login extends Base {
 
+    //selectors
     get signInBtn () {
         return $('.c-nav-session.c-nav-primary-separated.dropdown-primary');
     }
@@ -21,10 +22,13 @@ class login extends Base {
     get btnSubmit () {
         return $('.btn.btn-lg.btn-primary');
     }
+
     get homePage () {
         return $('[alt="boardgamegeek logo"]');
     }
 
+
+    //logging in incorrectly
     async notLogin (goodUsername, badPassword) {
         await this.signInBtn.click();
         await this.inputUsername.setValue(goodUsername);
@@ -33,6 +37,7 @@ class login extends Base {
         await expect(Checking.dontLogin).toBeExisting()
     }
 
+    //logging in correctly
     async login (rightUsername, rightPassword) {
         await this.signInBtn.click();
         await this.inputUsername.setValue(rightUsername);
@@ -44,6 +49,7 @@ class login extends Base {
             'automationtest')
     }
 
+    //going back to the home page
     async return () {
         await this.homePage.click();
     }

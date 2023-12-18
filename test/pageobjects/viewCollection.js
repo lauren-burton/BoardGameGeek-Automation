@@ -6,13 +6,13 @@ import Checking from './checks.js'
 
 class viewCollection extends Base {
 
+    //selectors
     get profileBtn() {
         return $('//span[contains(text(), "automationtest")]');
     }
 
     get viewLoggedPlays() {
         return $('[href="/plays/bymonth/user/automationtest/subtype/boardgame"]');
-
     }
 
     get filterBy() {
@@ -34,9 +34,12 @@ class viewCollection extends Base {
     get fiveanddime() {
         return $('[value="fiveanddime"]');
     }
+
     get go() {
         return $('[value="Go"]');
     }
+
+    //clicking profile and logged plays
     async viewingCollection() {
         await this.profileBtn.waitForExist({ timeout: 10000 });
         await this.profileBtn.click();
@@ -44,7 +47,8 @@ class viewCollection extends Base {
         await expect(Checking.checkProfile).toBeExisting();
     }
     
-    async filteringByDate() {
+    //filtering the logged plays
+    async filteringByThis() {
         await this.filterBy.click();
         await this.byGame.click();
         await this.go.click();

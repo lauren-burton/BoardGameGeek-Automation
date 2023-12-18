@@ -5,6 +5,8 @@ import Checking from './checks.js'
 
 class mushroomCats extends Base {
 
+    //selectors 
+
     get searchBar () {
         return $('.form-control');
     }
@@ -84,18 +86,21 @@ class mushroomCats extends Base {
         return randomElement;
       }
 
+      //searching in the search bar "mushroom"
     async searching (mushroom) {
         await this.searchBar.setValue(mushroom);
         await this.confirm.click();
         await expect(Checking.titleCheck).toBeExisting();
     }
 
+    //click mushroomcats button
     async mushroomCats () {
         await this.mushroomCatsBtn.waitForExist();
         await this.mushroomCatsBtn.click();
         await expect(Checking.mushroomCatsCheck).toBeExisting();
     }
 
+    //logging play for mushroom cats
     async loggingPlay() {
         await this.logPlay.click();
         await this.gameDetails.waitForExist();
@@ -108,16 +113,21 @@ class mushroomCats extends Base {
         await expect(Checking.finishAddingPlayers).toBeExisting()
     }
 
+    //commenting in the play log
+
     async commentLogPlay(comment) {
 
         await this.comments.waitForClickable({ timeout: 2000 });
         await this.comments.setValue(comment);
     }
 
+    //selecting a random play time
     async randomTime () {
         let randomElement = await this.randomizer();
         await randomElement.click();
     }
+
+    //clicking save
     async doneLogging() {
         await this.saveBtn.click();
     }

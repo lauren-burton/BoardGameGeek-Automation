@@ -3,6 +3,8 @@ import Base from './base.js';
 
 
 class forums extends Base {
+
+    //selectors
     get forumsTab () {
         return $('//button[contains(text(),"Forums")]') ;
     }
@@ -15,6 +17,8 @@ class forums extends Base {
     get spiritIsland () {
         return $('.tw-break-words > [href="/boardgame/162886/spirit-island"]');
     }
+
+    //opening the forums and clicking hot/spirit island
 
     async forum () {
         await this.forumsTab.click();

@@ -6,9 +6,11 @@ import Checking from './checks.js'
 
 class otherUsers extends Base {
 
+    //selectors
     get community () {
         return $('//button[contains(text(),"Community")]');
     }
+
     get findUsers () {
         return $('[href="/users.php"]');
     }
@@ -41,6 +43,7 @@ class otherUsers extends Base {
         return $('[value="Submit"]');
     }
 
+    //clicking community and "find gamers"
     async findingOthers () {
         await this.community.click();
         await this.findUsers.waitForExist({ timeout: 4000});
@@ -49,6 +52,7 @@ class otherUsers extends Base {
         await this.findGamers.click();
     }
 
+    //inputing a filter for where the gamers are
     async findingGamers(zipCode) {
         await this.country.click();
         await this.findCountry.click();

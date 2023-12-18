@@ -1,4 +1,3 @@
-import { expect } from '@wdio/globals'
 import login from '../pageobjects/login.js'
 import forums from '../pageobjects/forums.js'
 import loggout from '../pageobjects/loggout.js'
